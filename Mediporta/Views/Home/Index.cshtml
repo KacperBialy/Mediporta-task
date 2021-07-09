@@ -1,0 +1,32 @@
+﻿@model IndexViewModel
+
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Tag
+            </th>
+            <th>
+                Liczba użyć
+            </th>
+            <th>
+                Popularność w próbce danych [%]
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Tags.Count; i++)
+        {
+            <tr>
+                <td width="10%">@i</td>
+                <td width="20%">@Model.Tags[i].name</td>
+                <td width="20%">@Model.Tags[i].count</td>
+                <td width="20%">@Model.TagProportions[i]</td>
+            </tr>
+        }
+    </tbody>
+</table>
