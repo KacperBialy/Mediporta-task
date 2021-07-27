@@ -1,6 +1,5 @@
 ﻿using Mediporta.Models;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -41,9 +40,9 @@ namespace Mediporta.Services
                     response.EnsureSuccessStatusCode();
  
                     TagCollection tag = JsonSerializer.Deserialize<TagCollection>(responseBody);
-                    Tags.AddRange(tag.items);
+                    Tags.AddRange(tag.Items);
  
-                    if (toLoad < 100 | !tag.has_more)
+                    if (toLoad < 100 | !tag.HasMore)
                     {
                         isLoaded = true;
                     }

@@ -26,9 +26,9 @@ namespace Mediporta.Controllers
         {
             List<Tag> Tags = await _stackOverflowService.GetMostPopularTagsAsync(1000);
 
-            long sumOfAll = Tags.Sum(tag => tag.count);
+            long sumOfAll = Tags.Sum(tag => tag.Count);
 
-            List<double> tagProportions = Tags.Select(tag => Math.Round(100 * (double)tag.count / sumOfAll, 3)).ToList();
+            List<double> tagProportions = Tags.Select(tag => Math.Round(100 * (double)tag.Count / sumOfAll, 3)).ToList();
 
             return View(new IndexViewModel(Tags, tagProportions));
         }
